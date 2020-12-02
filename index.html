@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            background-color: rgb(37, 37, 37);
+        }
+    </style>
+</head>
+<body>
+    <h1>Rock Paper Scissors</h1>
+    <script>
+
+
+        function computerPlay() {
+            const a = ['rock', 'paper', 'scissors'];
+            num = Math.floor(Math.random()*3);
+            return a[num];
+        }
+        
+        function playRound(playerSelection, computerSelection) {
+            console.log(`You: ${playerSelection}, Computer:${computerSelection}`)
+            playerSelection = playerSelection.toLowerCase();
+            computerSelection = computerSelection.toLowerCase();
+
+            if (playerSelection === 'rock' && computerSelection === 'scissors') {
+                return `${playerSelection} beats ${computerSelection}. You win!`;
+
+            } else if(playerSelection === 'paper' && computerSelection === 'rock') {
+                return `${playerSelection} beats ${computerSelection}. You win!`;
+
+            } else if(playerSelection === 'scissor' && computerSelection === 'paper') {
+                return `${playerSelection} beats ${computerSelection}. You win!`;
+
+            } else if(playerSelection === 'rock' && computerSelection === 'paper') {
+                return `${computerSelection} beats ${playerSelection}. You loose!`;
+                
+            } else if(playerSelection === 'paper' && computerSelection === 'scissors') {
+                return `${computerSelection} beats ${playerSelection}. You loose!`;
+                
+            } else if(playerSelection === 'scissors' && computerSelection === 'rock') {
+                return `${computerSelection} beats ${playerSelection}. You loose!`;
+                
+            } else {
+                return 'Watch your fingers';
+            }
+        }
+
+        function game() {
+            let comScore, playerScore = 0;
+
+            for(let i=0; i<5; i++) {
+                let playerSelection = prompt("Rock Paper Scissor?");
+                
+            }
+        }
+
+        
+    </script>
+</body>
+</html>
