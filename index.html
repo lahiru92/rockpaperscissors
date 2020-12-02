@@ -27,37 +27,54 @@
             computerSelection = computerSelection.toLowerCase();
 
             if (playerSelection === 'rock' && computerSelection === 'scissors') {
-                return `${playerSelection} beats ${computerSelection}. You win!`;
+                return 'player';
 
             } else if(playerSelection === 'paper' && computerSelection === 'rock') {
-                return `${playerSelection} beats ${computerSelection}. You win!`;
+                return 'player';
 
             } else if(playerSelection === 'scissor' && computerSelection === 'paper') {
-                return `${playerSelection} beats ${computerSelection}. You win!`;
+                return 'player';
 
             } else if(playerSelection === 'rock' && computerSelection === 'paper') {
-                return `${computerSelection} beats ${playerSelection}. You loose!`;
+                return 'com';
                 
             } else if(playerSelection === 'paper' && computerSelection === 'scissors') {
-                return `${computerSelection} beats ${playerSelection}. You loose!`;
+                return 'com';
                 
             } else if(playerSelection === 'scissors' && computerSelection === 'rock') {
-                return `${computerSelection} beats ${playerSelection}. You loose!`;
+                return 'com';
                 
             } else {
-                return 'Watch your fingers';
+                return 'tie';
             }
         }
 
         function game() {
-            let comScore, playerScore = 0;
+            let comScore=0, playerScore = 0;
 
             for(let i=0; i<5; i++) {
                 let playerSelection = prompt("Rock Paper Scissor?");
-                
+                let result = playRound(playerSelection, computerPlay());
+
+                if (result === 'com') {
+                    comScore++;
+                } else if (result ==='player') {
+                    playerScore++;
+                } 
+
+                console.log(`Player:${playerScore} Com:${comScore} - ${result}`);
+            }
+
+            if (comScore > playerScore) {
+                console.log("Player:",playerScore,"Com",comScore,"Computer Wins");
+            } else if (playerScore > comScore) {
+                console.log("Player:",playerScore,"Com",comScore,"Player Wins");
+            } else {
+                console.log("Player:",playerScore,"Com",comScore,"Tie");
             }
         }
 
+        game();
         
     </script>
 </body>
