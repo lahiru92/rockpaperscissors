@@ -3,79 +3,41 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <style>
-        body {
-            background-color: rgb(37, 37, 37);
-        }
-    </style>
+    <title>Rock Paper Scissors</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <h1>Rock Paper Scissors</h1>
-    <script>
+    <h1 id="title">Rock Paper Scissors</h1>
+    <div class="container">
+        <div id="result">
+           Click a Rock, Paper or Scissor
+        </div>
+        <h2 class="playername">Computer</h2>
+        <h2 class="playername">Player</h2>
+        <div></div>
+        <div class="playerchoice">
+            <div id="comchoice">
+                <img src="rock.png" id="comchoiceimg" ></img>
+            </div>
+        </div>
+        <div class="playerchoice">
+            <div id="playerchoice">
 
-
-        function computerPlay() {
-            const a = ['rock', 'paper', 'scissors'];
-            num = Math.floor(Math.random()*3);
-            return a[num];
-        }
+                <img src="paper.png" id="playerchoiceimg" ></img>
+            </div>
+        </div>
         
-        function playRound(playerSelection, computerSelection) {
-            console.log(`You: ${playerSelection}, Computer:${computerSelection}`)
-            playerSelection = playerSelection.toLowerCase();
-            computerSelection = computerSelection.toLowerCase();
 
-            if (playerSelection === 'rock' && computerSelection === 'scissors') {
-                return 'player';
+        <div id="buttons">
+            <button id="rock" class="rpcbtn">Rock</button>
+            <button id="paper" class="rpcbtn">Paper</button>
+            <button id="scissor" class="rpcbtn">Scissor</button>
+         </div>
 
-            } else if(playerSelection === 'paper' && computerSelection === 'rock') {
-                return 'player';
-
-            } else if(playerSelection === 'scissor' && computerSelection === 'paper') {
-                return 'player';
-
-            } else if(playerSelection === 'rock' && computerSelection === 'paper') {
-                return 'com';
-                
-            } else if(playerSelection === 'paper' && computerSelection === 'scissors') {
-                return 'com';
-                
-            } else if(playerSelection === 'scissors' && computerSelection === 'rock') {
-                return 'com';
-                
-            } else {
-                return 'tie';
-            }
-        }
-
-        function game() {
-            let comScore=0, playerScore = 0;
-
-            for(let i=0; i<5; i++) {
-                let playerSelection = prompt("Rock Paper Scissor?");
-                let result = playRound(playerSelection, computerPlay());
-
-                if (result === 'com') {
-                    comScore++;
-                } else if (result ==='player') {
-                    playerScore++;
-                } 
-
-                console.log(`Player:${playerScore} Com:${comScore} - ${result}`);
-            }
-
-            if (comScore > playerScore) {
-                console.log("Player:",playerScore,"Com",comScore,"Computer Wins");
-            } else if (playerScore > comScore) {
-                console.log("Player:",playerScore,"Com",comScore,"Player Wins");
-            } else {
-                console.log("Player:",playerScore,"Com",comScore,"Tie");
-            }
-        }
-
-        game();
-        
-    </script>
+        <div id="comscore" class="score">0</div>
+        <div id="playerscore" class="score">0</div>
+    </div>
+    <a href="https://www.vecteezy.com/free-vector/cat-paw">Cat Paw Vectors by Vecteezy</a>
+    <script src="script.js"></script>
 </body>
 </html>
